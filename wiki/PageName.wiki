@@ -8,22 +8,37 @@
 
 ==How to build==
   {{{
-   Class Person
-	public name
-	public age
-	public anotherObject
+    Class Person
+        public name
+        public age
+        public anotherObject
 
 
-	'auto reflect the object as dictionary'
-	public function reflect()
+        'auto reflect the object as dictionary'
+        public function reflect()
         set reflect = server.createObject("scripting.dictionary")
         with reflect
-            .add "name"		 , name
-            .add "age"		 , age
+            .add "name"          , name
+            .add "age"           , age
             .add "anotherObject" , anotherObject
-	end with
-	End function
-  End Class
+        end with
+        End function
+    End Class
+
+    Class anotherObject
+        public id
+        public objectName
+
+
+        'auto reflect the object as dictionary'
+        public function reflect()
+        set reflect = server.createObject("scripting.dictionary")
+        with reflect
+            .add "name"          , id
+            .add "age"           , objectName
+        end with
+        End function
+    End Class
   }}}
 
 
@@ -34,12 +49,18 @@ Inside of your ASP3 code
 <!--#include file="JSON2_0.0.1.1.asp"-->
 
 <%
-Set p = new Person
-p.name = "Alice"
-p.age = 20
-p.anotherObject = obj 'You can create other objects, must ever use the reflect function in your code'
+    Set obj = new anotherObject
+    obj.id = 1
+    obj.objectName = "My test object"
 
+    Set p = new Person
+    p.name = "Alice"
+    p.age = 20
+    set p.anotherObject = obj
 %>
 <!-- Parsing to JSON now -->
 <%=(new JSON).toJSON(p)%>
 }}}
+
+==Output==
+{"name":"Alice","age":20,"anotherObject":[{"name":1,"age":"My test object"}]}
