@@ -20,7 +20,7 @@
         with reflect
             .add "name"          , name
             .add "age"           , age
-            .add "anotherObject" , anotherObject
+            .add "anotherObject" , anotherObject 'You can create other objects, must ever use the reflect function in your code'
         end with
         End function
     End Class
