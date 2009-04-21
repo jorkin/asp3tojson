@@ -29,13 +29,12 @@
         public id
         public objectName
 
-
         'auto reflect the object as dictionary'
         public function reflect()
         set reflect = server.createObject("scripting.dictionary")
         with reflect
-            .add "name"          , id
-            .add "age"           , objectName
+            .add "id"          , id
+            .add "objectName"  , objectName
         end with
         End function
     End Class
@@ -63,4 +62,4 @@ Inside of your ASP3 code
 }}}
 
 ==Output==
-{"name":"Alice","age":20,"anotherObject":[{"name":1,"age":"My test object"}]}
+`{"name":"Alice","age":20,"anotherObject":[{"id":1,"objectName":"My test object"}]}`
