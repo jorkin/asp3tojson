@@ -63,3 +63,19 @@ Inside of your ASP3 code
 
 ==Output==
 `{"name":"Alice","age":20,"anotherObject":[{"id":1,"objectName":"My test object"}]}`
+
+_*Obs : The objects are parsed like array of objects .*_
+
+
+==JavaScript Usage==
+{{{
+<script>
+obj = {"name":"Alice","age":20,"anotherObject":[{"id":1,"objectName":"My test object"}]};
+
+var name = obj.name;
+var age = obj.age;
+
+var idObject = obj.anotherObject[0].id;
+var objectName = obj.anotherObject[0]. objectName;
+</script>
+}}}
