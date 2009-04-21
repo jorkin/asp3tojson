@@ -6,6 +6,7 @@
 
   Your Classes must have a function named reflect
 
+==How to build==
   {{{
    Class Person
 	public name
@@ -42,5 +43,3 @@ p.anotherObject = obj 'You can create other objects, must ever use the reflect f
 <!-- Parsing to JSON now -->
 <%=(new JSON).toJSON(p)%>
 }}}
-
-
