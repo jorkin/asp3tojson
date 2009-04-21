@@ -76,6 +76,6 @@ var name = obj.name;
 var age = obj.age;
 
 var idObject = obj.anotherObject[0].id;
-var objectName = obj.anotherObject[0]. objectName;
+var objectName = obj.anotherObject[0].objectName;
 </script>
 }}}
