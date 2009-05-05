@@ -8,7 +8,7 @@ http://asp3tojson.googlecode.com/files/asp3tojson_0.0.2.0_samples.zip
 Build a page with your class (page.class.asp for example)
 
 
-,,page.class.asp,,
+,,page.class.asp,, (Create your methods like a commom asp3 class)
   {{{
 <%
 Class Person
@@ -24,9 +24,10 @@ Class Person
     Public function sayHello(strName, strLastName)
         sayHello = "Hello, " & strName &" "& strLastName & "."
     End Function
+    ...
   }}}
-
-
+Inside in this same class, add a Method named *reflectMethod()* .
+Don´t forget declare this method as Public .
   {{{
     Public function reflectMethod()
         set reflectMethod = Server.CreateObject("Scripting.Dictionary")
@@ -39,24 +40,25 @@ Class Person
 
 End Class
   }}}
-
-
+Now add this Conditional. Inside of this conditional, add a method named *writeMethodsToJson*, the path must be placed and Type placed with *Quotes (")* .  
   {{{
 If request.QueryString("m") = "" Then
     path = "./person.class.asp"
     writeMethodsToJson "Person", path
 End If
 %>
+  }}}
+Finally, place the include file asp3tojson_reflector.asp
+  {{{
 <!-- #include file="asp3tojson_reflector.asp" -->
 
   }}}
 
-
-==Usage==
+==Running now==
 Inside of your ASP3 code
-
 {{{
 <!--#include file="asp3tojson.asp"-->
+<!--#include file="person.class.asp"-->
 
 <%
     Set obj = new anotherObject
