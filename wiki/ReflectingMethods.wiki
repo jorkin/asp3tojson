@@ -54,7 +54,7 @@ Finally, place the include file asp3tojson_reflector.asp
 
   }}}
 The result is a page with ASP3 methods parsed e ready to call via javascript
-in the (client side) .
+in the client side .
 
 
 
@@ -82,12 +82,14 @@ function test(msgCallback)
 }}}
 `<body>`
 
-The library writes the Class like this : _Person (_+Type)
+The library writes the Class like this : `_Person` (`_+Type`)
 The param test is the method that you liked to call
-`<input type="button" value="Click on me" onclick="new _Person.one(test)" />`
+{{{
+<input type="button" value="Click on me" onclick="new _Person.one(test)" />
 
-`</body>`
+</body>
 
-`</html>`
+</html>
+}}}
 
 ==Enjoy now ! :)==
