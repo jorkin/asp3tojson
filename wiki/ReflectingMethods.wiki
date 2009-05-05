@@ -80,11 +80,12 @@ function test(msgCallback)
 }
 </script>
 }}}
-`<body>`
 
 The library writes the Class like this : `_Person` (`_+Type`)
 The param test is the method that you liked to call
 {{{
+<body>
+
 <input type="button" value="Click on me" onclick="new _Person.one(test)" />
 
 </body>
@@ -92,4 +93,72 @@ The param test is the method that you liked to call
 </html>
 }}}
 
-==Enjoy now ! :)==
+
+
+== In Full code now ! ==
+
+,,page.class.asp,,
+{{{
+<%
+Class Person
+    Public function one()
+        Response.Write("Nothing returns here, a response.write method from server only !")
+    End Function
+
+    Public function two(aValue)
+        two = ucase(aValue)
+    End Function
+
+    
+    Public function sayHello(strName, strLastName)
+        sayHello = "Hello, " & strName &" "& strLastName & "."
+    End Function
+
+    Public function reflectMethod()
+        set reflectMethod = Server.CreateObject("Scripting.Dictionary")
+        with reflectMethod
+            .Add "function one", ""
+            .Add "function two", "name"
+            .Add "function sayHello", "name,lastName"
+        End with
+    End Function
+End Class
+
+If request.QueryString("m") = "" Then
+    path = "./person.class.asp"
+    writeMethodsToJson "Person", path
+End If
+%>
+<!-- #include file="asp3tojson_reflector.asp" -->
+}}}
+
+
+,,index.asp,,
+{{{
+<!--#include file="asp3tojson.asp"-->
+
+<!--#include file="person.class.asp"-->
+
+<html>
+
+<script>
+function test(msgCallback)
+{
+   alert(msgCallback);
+}
+</script>
+
+<body>
+
+<input type="button" value="Click on me" onclick="new _Person.one(test)" />
+
+</body>
+
+</html>
+}}}
+
+
+
+
+
+==Enjoy ! :)==
