@@ -78,6 +78,16 @@ function test(msgCallback)
 {
    alert(msgCallback);
 }
+
+function otherTest(msgCallback)
+{
+   alert(msgCallback);
+}
+
+function hello(msgCallback)
+{
+   alert(msgCallback);
+}
 </script>
 }}}
 
@@ -87,6 +97,14 @@ The param test is the method that you liked to call
 <body>
 
 <input type="button" value="Click on me" onclick="new _Person.one(test)" />
+<br />
+
+<input type="button" value="Click on me" onclick="new _Person.two(otherTest, 'a string was lowercase, now is uppercase')" />
+<br />
+
+<input type="button" value="Click on me" onclick="new _Person.sayHello(hello, 'John' , 'Travolta')" />
+<br />
+
 
 </body>
 
