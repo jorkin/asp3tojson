@@ -64,17 +64,17 @@ Inside of your ASP3 code
 ,,index.asp,,{{{
 <!--#include file="asp3tojson.asp"-->
 <!--#include file="person.class.asp"-->
-<html>
+`<html>`
 }}}
 This javascript function is the Ajax callback
+`<script>`
 {{{
-<script>
 function test(msgCallback)
 {
    alert(msgCallback);
 }
-</script>
-<body>
+`</script>`
+`<body>`
 }}}
 
 The library writes the Class like this : _Person (_+Type)
@@ -82,10 +82,9 @@ The param test is the method that you liked to call
 {{{
 <input type="button" value="Click on me" onclick="new _Person.one(test)" />
 
-</body>
+`</body>`
 
-</html>
+`</html>`
 }}}
 
 ==Enjoy now ! :)==
-
