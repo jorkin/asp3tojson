@@ -54,8 +54,44 @@ Finally, place the include file asp3tojson_reflector.asp
 
   }}}
 The result is a page with ASP3 methods parsed and ready to call via javascript
-in the client side .
+in the client side like this :
 
+{{{
+<script>
+var _Person = {
+one : function(method){
+       var url = './person.class.asp?m=one&o=Person';
+       a = new objectAjax.Ajax(url,{update:"", onComplete:
+       function(_text,_xml)
+       {
+          method(_text);
+       }
+       });
+       a.post();
+},
+two : function(method,name){
+       var url = './person.class.asp?m=two&o=Person';
+       a = new objectAjax.Ajax(url,{update:"", onComplete:
+       function(_text,_xml)
+       {
+          method(_text);
+       }
+       });
+       a.post('_param= "' + name + '" ');
+},
+sayHello : function(method,name,lastName){
+       var url = './person.class.asp?m=sayHello&o=Person';
+       a = new objectAjax.Ajax(url,{update:"", onComplete:
+       function(_text,_xml)
+       {
+          method(_text);
+       }
+       });
+       a.post('_param= "' + name + '" &_param= "' + lastName + '" ');
+}
+};
+</script>
+}}}
 
 
 ==Running now and JavaScript Usage==
