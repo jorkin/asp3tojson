@@ -1,36 +1,63 @@
 #labels Featured,Phase-Implementation,Phase-Support
-==How to build==
+The complete example in  :
+http://asp3tojson.googlecode.com/files/asp3tojson_0.0.2.0_samples.zip
+
+
+
+
+==How to Reflect your Methods (Simple version)==
+
+Build a page with your class (page.class.asp for example)
+
   {{{
-    Class Person
-        public name
-        public age
-        public anotherObject
+<%
+Class Person
+    public name
+    public lastName
+
+    Public function one()
+        Response.Write("Nothing returns here, a response.write method from server only !")
+    End Function
+
+    Public function two(aValue)
+        two = ucase(aValue)
+    End Function
+
+    
+    Public function sayHello(strName, strLastName)
+        sayHello = "Hello, " & strName &" "& strLastName & "."
+    End Function
 
 
-        'auto reflect the object as dictionary'
-        public function reflect()
-        set reflect = server.createObject("scripting.dictionary")
+
+    Public function reflect()
+        set reflect = Server.CreateObject("Scripting.Dictionary")
         with reflect
-            .add "name"          , name
-            .add "age"           , age
-            .add "anotherObject" , anotherObject 'You can create other objects, must ever use the reflect function in your code'
-        end with
-        End function
-    End Class
+            .Add "name", name
+            .Add "lastName", lastName
+        End with
+    End Function
 
-    Class anotherObject
-        public id
-        public objectName
 
-        'auto reflect the object as dictionary'
-        public function reflect()
-        set reflect = server.createObject("scripting.dictionary")
-        with reflect
-            .add "id"          , id
-            .add "objectName"  , objectName
-        end with
-        End function
-    End Class
+    Public function reflectMethod()
+        set reflectMethod = Server.CreateObject("Scripting.Dictionary")
+        with reflectMethod
+            .Add "function one", ""
+            .Add "function two", "name"
+            .Add "function sayHello", "name,lastName"
+        End with
+    End Function
+
+End Class
+
+
+If request.QueryString("m") = "" Then
+    path = "./person.class.asp"
+    writeMethodsToJson "Person", path
+End If
+%>
+<!-- #include file="asp3tojson_reflector.asp" -->
+
   }}}
 
 
