@@ -53,28 +53,39 @@ Finally, place the include file asp3tojson_reflector.asp
 <!-- #include file="asp3tojson_reflector.asp" -->
 
   }}}
+The result is a page with ASP3 methods parsed e ready to call via javascript
+in the (client side) .
+
+
 
 ==Running now and JavaScript Usage==
 Inside of your ASP3 code
-{{{
+
+,,index.asp,,{{{
 <!--#include file="asp3tojson.asp"-->
 <!--#include file="person.class.asp"-->
 <html>
+}}}
+This javascript function is the Ajax callback
+{{{
 <script>
 function test(msgCallback)
 {
    alert(msgCallback);
 }
 </script>
-
 <body>
+}}}
 
-
+The library writes the Class like this : _Person (_+Type)
+The param test is the method that you liked to call
+{{{
 <input type="button" value="Click on me" onclick="new _Person.one(test)" />
-
-
 
 </body>
 
 </html>
 }}}
+
+==Enjoy now ! :)==
+
