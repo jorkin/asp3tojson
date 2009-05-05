@@ -53,7 +53,7 @@ Finally, place the include file asp3tojson_reflector.asp
 <!-- #include file="asp3tojson_reflector.asp" -->
 
   }}}
-The result is a page with ASP3 methods parsed e ready to call via javascript
+The result is a page with ASP3 methods parsed and ready to call via javascript
 in the client side .
 
 
