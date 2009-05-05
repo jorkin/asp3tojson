@@ -5,10 +5,10 @@ http://asp3tojson.googlecode.com/files/asp3tojson_0.0.2.0_samples.zip
 
 ==How to Reflect your Methods (Simple version)==
 
-Build a page with your class (page.class.asp for example)
+Build a page with your class (person.class.asp for example)
 
 
-,,page.class.asp,, (Create your methods like a commom asp3 class)
+,,person.class.asp,, (Create your methods like a commom asp3 class)
   {{{
 <%
 Class Person
@@ -97,7 +97,7 @@ The param test is the method that you liked to call
 
 == In Full code now ! ==
 
-,,page.class.asp,,
+,,person.class.asp,,
 {{{
 <%
 Class Person
