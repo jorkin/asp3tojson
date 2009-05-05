@@ -92,7 +92,7 @@ function hello(msgCallback)
 }}}
 
 The library writes the Class like this : `_Person` (`_+Type`)
-The param test is the method that you liked to call
+The first param is the method that call
 {{{
 <body>
 
