@@ -54,41 +54,27 @@ Finally, place the include file asp3tojson_reflector.asp
 
   }}}
 
-==Running now==
+==Running now and JavaScript Usage==
 Inside of your ASP3 code
 {{{
 <!--#include file="asp3tojson.asp"-->
 <!--#include file="person.class.asp"-->
-
-<%
-    Set obj = new anotherObject
-    obj.id = 1
-    obj.objectName = "My test object"
-
-    Set p = new Person
-    p.name = "Alice"
-    p.age = 20
-    set p.anotherObject = obj
-%>
-<!-- Parsing to JSON now -->
-<%=(new JSON).toJSON(p)%>
-}}}
-
-==Output==
-`{"name":"Alice","age":20,"anotherObject":[{"id":1,"objectName":"My test object"}]}`
-
-_*Obs : The objects are parsed like array of objects .*_
-
-
-==JavaScript Usage==
-{{{
+<html>
 <script>
-obj = {"name":"Alice","age":20,"anotherObject":[{"id":1,"objectName":"My test object"}]};
-
-var name = obj.name;
-var age = obj.age;
-
-var idObject = obj.anotherObject[0].id;
-var objectName = obj.anotherObject[0].objectName;
+function test(msgCallback)
+{
+   alert(msgCallback);
+}
 </script>
+
+<body>
+
+
+<input type="button" value="Click on me" onclick="new _Person.one(test)" />
+
+
+
+</body>
+
+</html>
 }}}
